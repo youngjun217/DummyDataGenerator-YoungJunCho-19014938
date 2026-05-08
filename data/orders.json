@@ -1,0 +1,107 @@
+[
+  {
+    "id": "063387fc",
+    "customer_name": "한소희",
+    "items": [
+      {
+        "product_name": "스마트폰",
+        "quantity": 2,
+        "unit_price": 926000
+      },
+      {
+        "product_name": "웹캠",
+        "quantity": 3,
+        "unit_price": 59000
+      }
+    ],
+    "status": "processing",
+    "created_at": "2026-04-17T23:44:19.002184",
+    "total_price": 2029000
+  },
+  {
+    "id": "ff4312f1",
+    "customer_name": "임도현",
+    "items": [
+      {
+        "product_name": "웹캠",
+        "quantity": 3,
+        "unit_price": 118000
+      },
+      {
+        "product_name": "스마트폰",
+        "quantity": 3,
+        "unit_price": 967000
+      }
+    ],
+    "status": "completed",
+    "created_at": "2026-05-07T21:28:30.002231",
+    "total_price": 3255000
+  },
+  {
+    "id": "0017d14d",
+    "customer_name": "박민준",
+    "items": [
+      {
+        "product_name": "키보드",
+        "quantity": 3,
+        "unit_price": 187000
+      },
+      {
+        "product_name": "웹캠",
+        "quantity": 3,
+        "unit_price": 58000
+      },
+      {
+        "product_name": "스마트폰",
+        "quantity": 2,
+        "unit_price": 992000
+      },
+      {
+        "product_name": "마우스",
+        "quantity": 3,
+        "unit_price": 53000
+      }
+    ],
+    "status": "completed",
+    "created_at": "2026-04-10T22:43:02.002250",
+    "total_price": 2878000
+  },
+  {
+    "id": "894ebe35",
+    "customer_name": "한소희",
+    "items": [
+      {
+        "product_name": "이어폰",
+        "quantity": 1,
+        "unit_price": 95000
+      }
+    ],
+    "status": "pending",
+    "created_at": "2026-04-19T21:38:51.002260",
+    "total_price": 95000
+  },
+  {
+    "id": "13039d18",
+    "customer_name": "홍길동",
+    "items": [
+      {
+        "product_name": "스마트폰",
+        "quantity": 1,
+        "unit_price": 1186000
+      },
+      {
+        "product_name": "충전기",
+        "quantity": 3,
+        "unit_price": 21000
+      },
+      {
+        "product_name": "모니터",
+        "quantity": 3,
+        "unit_price": 405000
+      }
+    ],
+    "status": "processing",
+    "created_at": "2026-05-07T15:00:21.002271",
+    "total_price": 2464000
+  }
+]
