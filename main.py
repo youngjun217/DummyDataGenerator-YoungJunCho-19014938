@@ -29,6 +29,10 @@ def main() -> None:
 
     print(f"DB 경로: {DB_PATH}")
 
+    if args.reset:
+        existing = _load_db()
+        print(f"  현재 {len(existing)}건 삭제 후 초기화합니다.")
+
     if args.list:
         existing = _load_db()
         print(f"\n현재 저장된 주문: {len(existing)}건")
