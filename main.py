@@ -50,6 +50,11 @@ def main() -> None:
             _rjust(f"{o['total_price']:,.0f}원", 14) + "  " +
             o["created_at"][:19]
         )
+    from collections import Counter
+    status_counts = Counter(o["status"] for o in new_orders)
+    print(f"\n[상태별 요약]")
+    for status, count in sorted(status_counts.items()):
+        print(f"  {status:<12} : {count}건")
     print(f"\norders.json 에 저장되었습니다.")
 
 
