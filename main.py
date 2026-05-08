@@ -24,7 +24,8 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="주문 더미 데이터 생성기")
     parser.add_argument("-n", "--count", type=int, default=10, help="생성할 주문 수 (기본값: 10)")
     parser.add_argument("--reset", action="store_true", help="생성 전 DB 초기화")
-    parser.add_argument("--list", action="store_true", help="현재 저장된 주문 목록만 출력 (생성 없음)")
+    parser.add_argument("--list",  action="store_true", help="현재 저장된 주문 목록만 출력 (생성 없음)")
+    parser.add_argument("--summary", action="store_true", help="현재 DB 상태 요약만 출력")
     args = parser.parse_args()
 
     print(f"DB 경로: {DB_PATH}")
@@ -40,6 +41,15 @@ def main() -> None:
         print("-" * 60)
         for o in existing:
             print(_ljust(o["id"], 10) + " " + _ljust(o["customer_name"], 15) + " " + _ljust(o["status"], 12) + "  " + o["created_at"][:19])
+        return
+
+    if args.summary:
+        from collections import Counter
+        existing = _load_db()
+        counts = Counter(o.get("status", "unknown") for o in existing)
+        print(f"\n현재 DB 요약: 총 {len(existing)}건")
+        for status, cnt in sorted(counts.items()):
+            print(f"  {_ljust(status, 12)}: {cnt}건")
         return
 
     if args.reset:
