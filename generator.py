@@ -11,6 +11,7 @@ DB_PATH = os.environ.get("ORDER_DB_PATH", "data/orders.json")
 CUSTOMER_NAMES = [
     "홍길동", "김철수", "이영희", "박민준", "최수연",
     "정하늘", "강지훈", "윤서연", "임도현", "한소희",
+    "오지훈", "신예은", "백승현", "류미래", "조민서",
 ]
 
 PRODUCTS = [
