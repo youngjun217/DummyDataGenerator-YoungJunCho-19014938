@@ -7,7 +7,7 @@ sys.path.insert(0, os.path.dirname(__file__))
 if sys.stdout.encoding and sys.stdout.encoding.lower() != "utf-8":
     sys.stdout.reconfigure(encoding="utf-8")
 
-from generator import generate_and_save, reset_db, DB_PATH
+from generator import generate_and_save, reset_db, _load_db, DB_PATH
 
 
 def _dw(s: str) -> int:
@@ -24,9 +24,20 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="주문 더미 데이터 생성기")
     parser.add_argument("-n", "--count", type=int, default=10, help="생성할 주문 수 (기본값: 10)")
     parser.add_argument("--reset", action="store_true", help="생성 전 DB 초기화")
+    parser.add_argument("--list", action="store_true", help="현재 저장된 주문 목록만 출력 (생성 없음)")
     args = parser.parse_args()
 
     print(f"DB 경로: {DB_PATH}")
+
+    if args.list:
+        existing = _load_db()
+        print(f"\n현재 저장된 주문: {len(existing)}건")
+        print(_ljust("ID", 10) + " " + _ljust("고객명", 15) + " " + _ljust("상태", 12) + "  " + "생성일")
+        print("-" * 60)
+        for o in existing:
+            print(_ljust(o["id"], 10) + " " + _ljust(o["customer_name"], 15) + " " + _ljust(o["status"], 12) + "  " + o["created_at"][:19])
+        return
+
     if args.reset:
         reset_db()
 
