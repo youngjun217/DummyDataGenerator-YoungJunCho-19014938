@@ -87,9 +87,16 @@ def _save_db(orders: List[dict]) -> None:
         json.dump(orders, f, ensure_ascii=False, indent=2)
 
 
-def generate_and_save(count: int = 10) -> List[dict]:
+def generate_and_save(count: int = 10, verbose: bool = False) -> List[dict]:
     existing = _load_db()
-    new_orders = [generate_order() for _ in range(count)]
+    new_orders = []
+    for i in range(count):
+        o = generate_order()
+        new_orders.append(o)
+        if verbose:
+            print(f"\r  생성 중... {i + 1}/{count}", end="", flush=True)
+    if verbose:
+        print()
     existing.extend(new_orders)
     _save_db(existing)
     return new_orders

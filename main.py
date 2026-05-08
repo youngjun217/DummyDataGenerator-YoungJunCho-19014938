@@ -56,7 +56,7 @@ def main() -> None:
         reset_db()
 
     print(f"더미 주문 {args.count}건 생성 중...")
-    new_orders = generate_and_save(args.count)
+    new_orders = generate_and_save(args.count, verbose=True)
 
     print(f"\n생성 완료: {len(new_orders)}건")
     print(
